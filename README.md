@@ -1,4 +1,4 @@
 # python 网络爬虫开发
 
 ### scrape_center
-使用request爬取https://ssr1.scrape.center电影评论
+使用request抓取 https://ssr1.scrape.center 电影评论
