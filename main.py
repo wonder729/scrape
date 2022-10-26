@@ -1,16 +1,9 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
+from bs4 import BeautifulSoup
+import re
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    soup = BeautifulSoup(open("scrape_center/test.html",encoding="utf-8"), 'lxml')
+    published_time = soup.find(text=(re.compile(r'上映'))).string.split()[0]
+    print(type(published_time))
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+

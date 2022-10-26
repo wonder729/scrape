@@ -2,7 +2,6 @@ import requests
 import re
 import logging
 from urllib.parse import urljoin
-import multiprocessing
 import pandas as pd
 
 logging.basicConfig(level=logging.INFO,
@@ -73,6 +72,11 @@ def parse_detail(html):
 
 
 def save_data(data_list, name='movies.xlsx'):
+    if any(isinstance(i, list) for i in data_list):
+        data = []
+        for i in data_list:
+            data.extend(i)
+        data_list = data
     data_df = pd.DataFrame(data_list)
     data_df.to_excel(name, index=False)
 
