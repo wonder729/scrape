@@ -18,9 +18,9 @@ def scrape_page(url):
         response = requests.get(url)
         if response.status_code == 200:
             return response.text
-        logging.info(f"get invalid status_code {response.status_code} while scraping {url}")
+        logging.error(f"get invalid status_code {response.status_code} while scraping {url}")
     except requests.RequestException:
-        logging.info(f"error occurred while scraping {url}")
+        logging.error(f"error occurred while scraping {url}")
 
 
 def scrape_index(page):
